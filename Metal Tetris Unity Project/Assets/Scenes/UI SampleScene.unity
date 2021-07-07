@@ -3094,8 +3094,6 @@ GameObject:
   - component: {fileID: 1582000378}
   - component: {fileID: 1582000377}
   - component: {fileID: 1582000380}
-  - component: {fileID: 1582000379}
-  - component: {fileID: 1582000381}
   m_Layer: 0
   m_Name: SheetMetalGrid
   m_TagString: Untagged
@@ -3168,19 +3166,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1582000379
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1582000376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1e2d18a8bb6a5949a919bf9743ce1b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _piece: {fileID: 11400000, guid: 476c38c1c28cff349828e9d0fd54d0c3, type: 2}
 --- !u!61 &1582000380
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3207,18 +3192,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1582000381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1582000376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca0ba0461671235488c34f0c37471f93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1582354044
 GameObject:
   m_ObjectHideFlags: 0

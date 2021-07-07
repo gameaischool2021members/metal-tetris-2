@@ -6,6 +6,6 @@ using static Direction;
 public class Piece 
 {
     [SerializeField] PieceSO _pieceSO;
-    public Facing Facing;
+    [HideInInspector] public Facing Facing;
     public PieceSO PieceSO => _pieceSO;
 }

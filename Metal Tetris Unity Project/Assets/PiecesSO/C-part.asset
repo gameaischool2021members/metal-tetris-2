@@ -13,15 +13,11 @@ MonoBehaviour:
   m_Name: C-part
   m_EditorClassIdentifier: 
   _pieceName: C-part
-  _prefabTransform: {fileID: 6861573309966038287, guid: b3d7a291f33d9ae458ba85c98d3f6bc6, type: 3}
+  _prefabTransform: {fileID: 5680988340446617467, guid: 72f2d0c672ecfe34187580e8ddf24b47, type: 3}
   _coveredCells:
   - {x: 0, y: 0}
   - {x: 0, y: 1}
-  - {x: 0, y: 2}
-  - {x: 1, y: 2}
-  - {x: 2, y: 2}
-  - {x: 3, y: 2}
-  - {x: 4, y: 2}
-  - {x: 4, y: 1}
-  - {x: 4, y: 0}
-  _pivotPoint: {x: 2, y: 1}
+  - {x: 1, y: 1}
+  - {x: 2, y: 1}
+  - {x: 2, y: 0}
+  _pivotPoint: {x: 0, y: 0}
