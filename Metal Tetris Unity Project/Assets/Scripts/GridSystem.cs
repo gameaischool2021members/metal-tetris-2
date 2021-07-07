@@ -35,6 +35,11 @@ public class GridSystem
         Debug.DrawLine(GetWorldPosition(_width, 0), GetWorldPosition(_width, _height), Color.white, 100f);
     }
 
+    public void GetGridDimensions(out int width, out int height)
+    {
+        width = _width;
+        height = _height;
+    }
     public Vector3 GetWorldPosition(int x, int y) => new Vector3(x, y) * _cellSize;
 
     public void GetXY(Vector3 worldPosition, out int x, out int y)
