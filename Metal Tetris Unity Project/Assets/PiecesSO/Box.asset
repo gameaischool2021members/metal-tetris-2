@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4059b352f2e45c64daee48cf583cc6e1, type: 3}
+  m_Name: Box
+  m_EditorClassIdentifier: 
+  _pieceName: Box
+  _prefabTransform: {fileID: 8372203763782920878, guid: c93f08d855e38c24a870f77ebfb9c76f, type: 3}
+  _coveredCells:
+  - {x: 0, y: 0}
+  - {x: 0, y: 1}
+  - {x: 1, y: 0}
+  - {x: 1, y: 1}
+  _pivotPoint: {x: 0, y: 0}
