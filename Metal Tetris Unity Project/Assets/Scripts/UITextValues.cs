@@ -27,11 +27,7 @@ public class UITextValues : MonoBehaviour
     void Start()
     {
 
-        // PRICE OF ORDERS
-        priceOrder1 = calculateOrderPrice();
-        priceOrder2 = calculateOrderPrice();
-        priceOrder3 = calculateOrderPrice();
-        setUITextPriceValues();
+    
 
 
         // PARTS PER ORDER - already generated random num of parts in another script?
@@ -42,6 +38,13 @@ public class UITextValues : MonoBehaviour
         setUITextNumOfPartsPerOrder(1);
         setUITextNumOfPartsPerOrder(2);
         setUITextNumOfPartsPerOrder(3);
+
+
+        // PRICE OF ORDERS
+        priceOrder1 = calculateOrderPrice(piecesInOrder1);
+        priceOrder2 = calculateOrderPrice(piecesInOrder2);
+        priceOrder3 = calculateOrderPrice(piecesInOrder3);
+        setUITextPriceValues();
 
 
 
@@ -56,14 +59,20 @@ public class UITextValues : MonoBehaviour
 
 
     // TO DO 
-    int calculateOrderPrice()  // arguments - order num, num of parts?
+    int calculateOrderPrice(int[] partQuantities)  // arguments - order num, num of parts?
     {
 
         // CALCULATE BASED ON NUM OF PIECES ( + TYPE? ) - TO DO 
 
+        int totalValueOfOrder = 0;
+
+        totalValueOfOrder += (partQuantities[0] * 60);
+        totalValueOfOrder += (partQuantities[1] * 50);
+        totalValueOfOrder += (partQuantities[2] * 40);
+        totalValueOfOrder += (partQuantities[3] * 50);
 
         // for now - just for testing - TO FIX 
-        return 100;
+        return totalValueOfOrder;
 
     }
 
