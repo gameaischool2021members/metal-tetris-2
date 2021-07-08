@@ -3,6 +3,7 @@ using static Direction;
 
 public class PieceSelection : MonoBehaviour
 {
+    [SerializeField] Transform _piecesParent;
     Piece _actualPiece;
     Transform _pieceObject;
     GridSystem _grid;
@@ -40,7 +41,7 @@ public class PieceSelection : MonoBehaviour
         _grid.OccupyCells(mousePosition, _actualPiece);
 
         Vector3 correction = new Vector3(0.5f + _positionCorrection.x, 0.5f + _positionCorrection.y, 0);
-        Instantiate(_actualPiece.PieceSO.PrefabTransform, _grid.GetWorldPosition(x, y)+correction, _pieceObject.localRotation);
+        Instantiate(_actualPiece.PieceSO.PrefabTransform, _grid.GetWorldPosition(x, y)+correction, _pieceObject.localRotation,_piecesParent);
     }
 
     void RotatePiece(float side) 

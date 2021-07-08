@@ -123,4 +123,14 @@ public class GridSystem
     }
 
     bool IsInsideGrid(int x, int y) => (x >= 0 && y >= 0 && x < _width && y < _height) ? true : false;
+    public void ClearCells()
+    {
+        for (int x = 0; x < _gridArray.GetLength(0); x++)
+        {
+            for (int y = 0; y < _gridArray.GetLength(1); y++)
+            {
+                SetValue(x, y, 0);
+            }
+        }
+    }
 }
