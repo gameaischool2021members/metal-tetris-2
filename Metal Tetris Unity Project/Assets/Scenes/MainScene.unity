@@ -134,11 +134,7 @@ GameObject:
   - component: {fileID: 318761715}
   - component: {fileID: 318761714}
   m_Layer: 0
-<<<<<<< Updated upstream
   m_Name: metal-2575450
-=======
-  m_Name: Background
->>>>>>> Stashed changes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -207,11 +203,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-<<<<<<< Updated upstream
   m_RootOrder: 6
-=======
-  m_RootOrder: 5
->>>>>>> Stashed changes
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
