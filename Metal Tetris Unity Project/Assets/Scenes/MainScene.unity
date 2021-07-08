@@ -299,6 +299,7 @@ GameObject:
   - component: {fileID: 991352282}
   - component: {fileID: 991352281}
   - component: {fileID: 991352280}
+  - component: {fileID: 991352283}
   m_Layer: 0
   m_Name: Agent
   m_TagString: Untagged
@@ -347,6 +348,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &991352283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991352279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70ac520b140845a4faa6babab1516f59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1100008934
 GameObject:
   m_ObjectHideFlags: 0
@@ -808,41 +821,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pieceList:
-  - _pieceSO: {fileID: 11400000, guid: 4093cd7ce84722b4cae31bdb1e429406, type: 2}
-    _orderNumber: 0
-    Facing: 0
-  - _pieceSO: {fileID: 11400000, guid: 2ef114f267eb6ad4d993b637e737d512, type: 2}
+  - _pieceSO: {fileID: 11400000, guid: fa348feedb9258c45909c8630bbbccc6, type: 2}
     _orderNumber: 0
     Facing: 0
   - _pieceSO: {fileID: 11400000, guid: 962993a792d329340a659ec2861dd551, type: 2}
     _orderNumber: 0
     Facing: 0
-  - _pieceSO: {fileID: 11400000, guid: fa348feedb9258c45909c8630bbbccc6, type: 2}
+  - _pieceSO: {fileID: 11400000, guid: 2ef114f267eb6ad4d993b637e737d512, type: 2}
+    _orderNumber: 0
+    Facing: 0
+  - _pieceSO: {fileID: 11400000, guid: 4093cd7ce84722b4cae31bdb1e429406, type: 2}
     _orderNumber: 0
     Facing: 0
   - _pieceSO: {fileID: 11400000, guid: fa348feedb9258c45909c8630bbbccc6, type: 2}
-    _orderNumber: 0
+    _orderNumber: 1
+    Facing: 0
+  - _pieceSO: {fileID: 11400000, guid: 962993a792d329340a659ec2861dd551, type: 2}
+    _orderNumber: 1
+    Facing: 0
+  - _pieceSO: {fileID: 11400000, guid: 2ef114f267eb6ad4d993b637e737d512, type: 2}
+    _orderNumber: 1
+    Facing: 0
+  - _pieceSO: {fileID: 11400000, guid: 4093cd7ce84722b4cae31bdb1e429406, type: 2}
+    _orderNumber: 1
     Facing: 0
   - _pieceSO: {fileID: 11400000, guid: fa348feedb9258c45909c8630bbbccc6, type: 2}
-    _orderNumber: 0
+    _orderNumber: 2
     Facing: 0
-  - _pieceSO: {fileID: 11400000, guid: fa348feedb9258c45909c8630bbbccc6, type: 2}
-    _orderNumber: 0
+  - _pieceSO: {fileID: 11400000, guid: 962993a792d329340a659ec2861dd551, type: 2}
+    _orderNumber: 2
     Facing: 0
-  - _pieceSO: {fileID: 11400000, guid: fa348feedb9258c45909c8630bbbccc6, type: 2}
-    _orderNumber: 0
+  - _pieceSO: {fileID: 11400000, guid: 2ef114f267eb6ad4d993b637e737d512, type: 2}
+    _orderNumber: 2
     Facing: 0
-  - _pieceSO: {fileID: 11400000, guid: fa348feedb9258c45909c8630bbbccc6, type: 2}
-    _orderNumber: 0
-    Facing: 0
-  - _pieceSO: {fileID: 11400000, guid: fa348feedb9258c45909c8630bbbccc6, type: 2}
-    _orderNumber: 0
-    Facing: 0
-  - _pieceSO: {fileID: 11400000, guid: fa348feedb9258c45909c8630bbbccc6, type: 2}
-    _orderNumber: 0
-    Facing: 0
-  - _pieceSO: {fileID: 11400000, guid: fa348feedb9258c45909c8630bbbccc6, type: 2}
-    _orderNumber: 0
+  - _pieceSO: {fileID: 11400000, guid: 4093cd7ce84722b4cae31bdb1e429406, type: 2}
+    _orderNumber: 2
     Facing: 0
 --- !u!114 &1940929563
 MonoBehaviour:
@@ -935,3 +948,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _agentController: {fileID: 991352280}
+  _agentWorldStateGetter: {fileID: 991352283}
