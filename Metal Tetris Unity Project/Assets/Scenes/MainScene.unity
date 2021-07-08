@@ -331,6 +331,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsInAgentMode: 1
+  _playerController: {fileID: 1940929563}
+  _agentController: {fileID: 991352280}
 --- !u!4 &991352282
 Transform:
   m_ObjectHideFlags: 0
