@@ -18,5 +18,7 @@ public class SheetMetalGrid : MonoBehaviour
         pieceSelection.Grid = _grid;
         RedLineManager redLine = GetComponent<RedLineManager>();
         redLine.SetGrid(_grid);
+        DeliverySystem deliverySystem = GetComponent<DeliverySystem>();
+        deliverySystem.Grid = _grid;
     }
 }
