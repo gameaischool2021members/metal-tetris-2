@@ -1,12 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AgentController : MonoBehaviour
 {
     PieceManager _pieceManager;
     PieceSelection _pieceSelection;
+    DeliverySystem _deliverySystem;
     public PieceManager PieceManager {set => _pieceManager = value; }
+    public PieceSelection PieceSelection {set => _pieceSelection = value; }
+    public DeliverySystem DeliverySystem {set => _deliverySystem = value; }
 
     private void OnEnable() => _pieceSelection.MovePieceToLeftBottom();
 
@@ -39,5 +40,8 @@ public class AgentController : MonoBehaviour
 
     //Place the Piece
     public bool PlacePiece() => _pieceSelection.PlacePieceInGrid();
+
+    //clearing the Sheet
+    public void ClearTheSheet() =>_deliverySystem.ClearGrid();
 
 }
