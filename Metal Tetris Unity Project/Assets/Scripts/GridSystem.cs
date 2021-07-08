@@ -93,6 +93,8 @@ public class GridSystem
         return true;
     }
 
+    public bool ValidPositionCheck(int x) { return false; }
+
     Vector2Int RotationCellHandler(Vector2Int cell,Vector2Int pivotPoint, Facing direction)
     {
         int x = cell.x, y = cell.y;
@@ -122,7 +124,7 @@ public class GridSystem
         return cell;
     }
 
-    bool IsInsideGrid(int x, int y) => (x >= 0 && y >= 0 && x < _width && y < _height) ? true : false;
+    public bool IsInsideGrid(int x, int y) => (x >= 0 && y >= 0 && x < _width && y < _height) ? true : false;
     public void ClearCells()
     {
         for (int x = 0; x < _gridArray.GetLength(0); x++)
