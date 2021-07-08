@@ -2,11 +2,18 @@ using UnityEngine;
 
 public class AgentModeToggle : MonoBehaviour
 {
-    public bool IsInAgentMode = true;
+    public bool IsInAgentMode = false;
     [SerializeField] PlayerController _playerController;
     [SerializeField] AgentController _agentController;
 
     bool _wasInAgentMode;
+
+    private void Start()
+    {
+        IsInAgentMode = false;
+        _playerController.enabled = true;
+        _agentController.enabled = false;
+    }
 
     private void Update()
     {

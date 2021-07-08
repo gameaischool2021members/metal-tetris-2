@@ -9,7 +9,11 @@ public class AgentController : MonoBehaviour
     public PieceSelection PieceSelection {set => _pieceSelection = value; }
     public DeliverySystem DeliverySystem {set => _deliverySystem = value; }
 
-    private void OnEnable() => _pieceSelection.MovePieceToLeftBottom();
+    private void OnEnable()
+    {
+        if (_pieceSelection == null) return;
+        _pieceSelection.MovePieceToLeftBottom();
+    }
 
     //Selecting Piece
     public void SelectOrder1Piece0() => _pieceManager.GetOrder1Piece0();

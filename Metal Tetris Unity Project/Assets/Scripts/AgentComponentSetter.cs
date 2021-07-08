@@ -17,10 +17,6 @@ public class AgentComponentSetter : MonoBehaviour
         _pieceManager = GetComponent<PieceManager>();
         _pieceSelection = GetComponent<PieceSelection>();
         _deliverySystem = GetComponent<DeliverySystem>();
-    }
-
-    private void Start()
-    {
         _agentController.PieceManager = _pieceManager;
         _agentController.PieceSelection = _pieceSelection;
         _agentController.DeliverySystem = _deliverySystem;
