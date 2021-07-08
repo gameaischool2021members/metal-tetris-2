@@ -152,4 +152,6 @@ public class GridSystem
         porcentage = occupied / (occupied + empty);
         return porcentage;
     }
+
+
 }

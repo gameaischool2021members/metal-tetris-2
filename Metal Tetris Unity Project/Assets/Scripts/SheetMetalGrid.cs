@@ -20,5 +20,7 @@ public class SheetMetalGrid : MonoBehaviour
         redLine.SetGrid(_grid);
         DeliverySystem deliverySystem = GetComponent<DeliverySystem>();
         deliverySystem.Grid = _grid;
+        AgentComponentSetter agentComponentSetter = GetComponent<AgentComponentSetter>();
+        agentComponentSetter.Grid = _grid;
     }
 }
