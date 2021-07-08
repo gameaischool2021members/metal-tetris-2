@@ -84,15 +84,60 @@ public class UITextValues : MonoBehaviour
         int[] fourDifferentPartValues = new int[4];
 
 
+   /*     int val1 = 1;
+        int val2 = 1;
+        int val3 = 1;
+        int val4 = 0;
+
+*/
+        int totalValue = 0;
 
 
-        //parts 1-4 - fix this - just for now
-        fourDifferentPartValues[0] = 1;
-        fourDifferentPartValues[1] = 2;
-        fourDifferentPartValues[2] = 3;
-        fourDifferentPartValues[3] = 4;
+        int randomVal = Random.Range(0, 3); // 0 , 1 or 2
 
+        if (totalValue+randomVal < 4)
+        {
+            fourDifferentPartValues[0] = randomVal;
+            totalValue += randomVal;
+        }
 
+        
+        randomVal = Random.Range(0, 3); // 0 , 1 or 2
+
+        if (totalValue+randomVal < 4)
+        {
+            fourDifferentPartValues[1] = randomVal;
+            totalValue += randomVal;
+        }
+
+        if (totalValue < 4)
+        {
+            if (totalValue < 3)
+            {
+                int randomVal2 = Random.Range(0, 2); // 0 , 1 
+
+                if (randomVal2 == 0)
+                {
+                    fourDifferentPartValues[2] = 1;
+                    totalValue += 1;
+                }
+                else
+                {
+                    fourDifferentPartValues[2] = 2;
+                    totalValue += 2;
+                }
+            }
+            else
+            {
+                fourDifferentPartValues[2] = 1;
+                totalValue += 1;
+            }
+        }
+
+        if (totalValue < 4)
+        {
+            fourDifferentPartValues[3] = 4-totalValue;
+        }
 
 
         return fourDifferentPartValues;
