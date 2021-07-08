@@ -133,4 +133,21 @@ public class GridSystem
             }
         }
     }
+
+    public float OccupiedPorcentage()
+    {
+        float occupied=0, empty=0, porcentage;
+        for (int x = 0; x < _gridArray.GetLength(0); x++)
+        {
+            for (int y = 0; y < _gridArray.GetLength(1); y++)
+            {
+                if (GetValue(x, y) == 0)
+                    empty++;
+                else
+                    occupied++;
+            }
+        }
+        porcentage = occupied / (occupied + empty);
+        return porcentage;
+    }
 }

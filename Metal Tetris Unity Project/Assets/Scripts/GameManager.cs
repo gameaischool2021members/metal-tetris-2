@@ -1,9 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    //add UI Scene
+    [SerializeField] int _UISceneindex = 1;
+    private void Awake()
+    {
+        SceneManager.LoadSceneAsync(_UISceneindex, LoadSceneMode.Additive);
+    }
 
 }
