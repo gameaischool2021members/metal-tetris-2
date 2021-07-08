@@ -6,7 +6,7 @@ public class GridPrefabDestroyer : MonoBehaviour
 
     public void DestroyPiecesInGrid()
     {
-        foreach (Transform child in transform)
+        foreach (Transform child in _piecesInGridParent)
         {
             Destroy(child.gameObject);
         }
