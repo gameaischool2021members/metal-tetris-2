@@ -747,13 +747,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pieceList:
-  - _pieceSO: {fileID: 11400000, guid: fa348feedb9258c45909c8630bbbccc6, type: 2}
-    Facing: 0
-  - _pieceSO: {fileID: 11400000, guid: 962993a792d329340a659ec2861dd551, type: 2}
+  - _pieceSO: {fileID: 11400000, guid: 4093cd7ce84722b4cae31bdb1e429406, type: 2}
     Facing: 0
   - _pieceSO: {fileID: 11400000, guid: 2ef114f267eb6ad4d993b637e737d512, type: 2}
     Facing: 0
-  - _pieceSO: {fileID: 11400000, guid: 4093cd7ce84722b4cae31bdb1e429406, type: 2}
+  - _pieceSO: {fileID: 11400000, guid: 962993a792d329340a659ec2861dd551, type: 2}
+    Facing: 0
+  - _pieceSO: {fileID: 11400000, guid: fa348feedb9258c45909c8630bbbccc6, type: 2}
     Facing: 0
 --- !u!114 &1940929563
 MonoBehaviour:
@@ -794,7 +794,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _redLineTransform: {fileID: 1895151047}
-  _pricePerDistance: 100
+  _pricePerDistance: 20
 --- !u!114 &1940929566
 MonoBehaviour:
   m_ObjectHideFlags: 0
