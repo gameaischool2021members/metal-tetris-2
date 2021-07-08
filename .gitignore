@@ -58,3 +58,8 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+*.log
+Metal Tetris Unity Project/Logs/AssetImportWorker0-prev.log
+Metal Tetris Unity Project/Logs/AssetImportWorker0-prev.log
+Metal Tetris Unity Project/Logs/AssetImportWorker0-prev.log
+*.log
