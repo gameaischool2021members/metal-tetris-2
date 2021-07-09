@@ -23,9 +23,13 @@ public class AgentComponentSetter : MonoBehaviour
         _agentController.PieceManager = _pieceManager;
         _agentController.PieceSelection = _pieceSelection;
         _agentController.DeliverySystem = _deliverySystem;
-        _agentWorldStateGetter.Grid = _grid;
         _agentWorldStateGetter.PieceSelection = _pieceSelection;
         _agentWorldStateGetter.RedLineManager = _redLineManager;
         _agentWorldStateGetter.OrderManager = _orderManager;
+    }
+
+    private void Start()
+    {
+        _agentWorldStateGetter.Grid = _grid;
     }
 }
