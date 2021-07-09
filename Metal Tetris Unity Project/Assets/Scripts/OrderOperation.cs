@@ -8,17 +8,19 @@ public class OrderOperation : MonoBehaviour
     [SerializeField] Piece _piece1, _piece2, _piece3, _piece4;
     [SerializeField] TMP_Text _priceText;
     [SerializeField] TMP_Text _piece1AmountText, _piece2AmountText, _piece3AmountText, _piece4AmountText;
-    [HideInInspector] public float OrderPrice;
+    [SerializeField] AccountBalance _accountBalance;
+    [HideInInspector] public int OrderPrice;
     [HideInInspector] public int Piece1Amount, Piece2Amount, Piece3Amount, Piece4Amount;
     [HideInInspector] public bool IsPiece1Empty, IsPiece2Empty, IsPiece3Empty, IsPiece4Empty;
+    public Action<OrderOperation> OrderComplete; 
 
     public void GenerateOrderPrice()
     {
         OrderPrice = 0;
         OrderPrice += (Piece1Amount * _piece1.PieceSO.PiecePrice);
-        OrderPrice += (Piece1Amount * _piece2.PieceSO.PiecePrice);
-        OrderPrice += (Piece1Amount * _piece3.PieceSO.PiecePrice);
-        OrderPrice += (Piece1Amount * _piece4.PieceSO.PiecePrice);
+        OrderPrice += (Piece2Amount * _piece2.PieceSO.PiecePrice);
+        OrderPrice += (Piece3Amount * _piece3.PieceSO.PiecePrice);
+        OrderPrice += (Piece4Amount * _piece4.PieceSO.PiecePrice);
         UpdatePriceText();
     }
 
@@ -75,12 +77,23 @@ public class OrderOperation : MonoBehaviour
     {
         if (Piece1Amount == 0 && Piece2Amount ==0 && Piece3Amount == 0 && Piece4Amount == 0)
         {
-            //doCompletition Stuff
+            Debug.Log("Order Completed");
+            OrderComplete.Invoke(this);
+            _accountBalance.AddToBalance(OrderPrice);
         }
     }
 
-    internal bool CheckIfRemaining(Piece piece)
+    public bool CheckIfRemaining(Piece piece)
     {
-        throw new NotImplementedException();
+        if (piece.PieceSO.PieceType == _piece1.PieceSO.PieceType)
+            return !IsPiece1Empty;
+        if (piece.PieceSO.PieceType == _piece2.PieceSO.PieceType)
+            return !IsPiece2Empty;
+        if (piece.PieceSO.PieceType == _piece3.PieceSO.PieceType)
+            return !IsPiece3Empty;
+        if (piece.PieceSO.PieceType == _piece4.PieceSO.PieceType)
+            return !IsPiece4Empty;
+        else
+            return false;
     }
 }

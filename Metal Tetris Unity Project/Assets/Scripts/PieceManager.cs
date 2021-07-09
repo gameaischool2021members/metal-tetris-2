@@ -8,9 +8,14 @@ public class PieceManager : MonoBehaviour
 
     public List<Piece> PieceList  => _pieceList;
     private void Awake() => _pieceSelection = GetComponent<PieceSelection>();
-    private void Start() => GetOrder1Piece0();
+    private void Start()
+    {
+        _pieceSelection.PieceList = _pieceList;
+        GetOrder1Piece0();
+        _pieceSelection.ChangePieceIfNecessary();
+    }
 
-    void SetPieceByIndex(int index) => _pieceSelection.SetActualPiece( _pieceList[index]);
+    public void SetPieceByIndex(int index) => _pieceSelection.SetActualPiece( _pieceList[index]);
     public void GetOrder1Piece0() => SetPieceByIndex(0);
     public void GetOrder1Piece1() => SetPieceByIndex(1);
     public void GetOrder1Piece2() => SetPieceByIndex(2);

@@ -1,22 +1,31 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using static Direction;
+using static PieceTypeEnum;
 
 public class PieceSelection : MonoBehaviour
 {
     [SerializeField] Transform _piecesParent;
     [SerializeField] AgentModeToggle _agentMode;
     [SerializeField] OrderManager _orderManager;
+    PieceManager _pieceManager;
+    List<Piece> _pieceList;
     Piece _actualPiece;
     Transform _pieceObject;
     GridSystem _grid;
     PlayerController _controller;
+
+
+
     Vector2Int _agentPosition;
 
     Vector2 _positionCorrection = new Vector2(-0.5f, -0.5f);
+    public List<Piece> PieceList {set => _pieceList = value; }
     public GridSystem Grid {set => _grid = value;}
     public Piece ActualPiece => _actualPiece;
     public Vector2Int AgentPosition => _agentPosition;
+
 
     private void OnEnable()
     {
@@ -29,7 +38,11 @@ public class PieceSelection : MonoBehaviour
         _controller.PlayerRotate -= RotatePiece;
     }
 
-    void Awake() => _controller = GetComponent<PlayerController>();
+    void Awake()
+    {
+        _controller = GetComponent<PlayerController>();
+        _pieceManager = GetComponent<PieceManager>();
+    }
 
     void Update()
     {
@@ -39,6 +52,7 @@ public class PieceSelection : MonoBehaviour
 
     public void SetActualPiece(Piece piece)
     {
+        if (!IsAValidSelection(piece)) return;
         if (_pieceObject !=null) Destroy(_pieceObject.gameObject);
         _actualPiece = piece;
         _pieceObject = Instantiate(_actualPiece.PieceSO.PrefabTransform, Vector3.zero, Quaternion.identity);
@@ -56,7 +70,8 @@ public class PieceSelection : MonoBehaviour
             _grid.GetWorldPosition(x, y)+correction,
             _pieceObject.localRotation,
             _piecesParent);
-        RemainingActualPiecesCheck();
+        _orderManager.ReduceAmountOfPiece(_actualPiece);
+        ChangePieceIfNecessary(_pieceList.IndexOf(_actualPiece));
     }
 
     public bool PlacePieceInGrid()
@@ -71,15 +86,25 @@ public class PieceSelection : MonoBehaviour
             _grid.GetWorldPosition(_agentPosition.x, _agentPosition.y) + correction,
             _pieceObject.localRotation,
             _piecesParent);
-        RemainingActualPiecesCheck();
+        _orderManager.ReduceAmountOfPiece(_actualPiece);
+        ChangePieceIfNecessary( _pieceList.IndexOf(_actualPiece));
         return true;
     }
 
-    private void RemainingActualPiecesCheck()
+    public void ChangePieceIfNecessary( int pieceIndexInList)
     {
-        _orderManager.ReduceAmountOfPiece(_actualPiece);
-
+        if (_actualPiece == null) _actualPiece = _pieceManager.PieceList[0];
+        if (IsAValidSelection(pieceIndexInList))
+        {
+            SetActualPiece(_pieceManager.PieceList[pieceIndexInList]);
+            return;
+        }
+        if (pieceIndexInList < _pieceList.Count-1)
+            ChangePieceIfNecessary(pieceIndexInList + 1);
+        else
+            ChangePieceIfNecessary(0);
     }
+    public void ChangePieceIfNecessary() => ChangePieceIfNecessary(0);
 
     public void RotatePiece(float side) 
     {
@@ -140,6 +165,24 @@ public class PieceSelection : MonoBehaviour
 
         _agentPosition += new Vector2Int(x, y);
         _pieceObject.position = _grid.GetWorldPosition(_agentPosition.x, _agentPosition.y);
+        return true;
+    }
+
+    public bool IsAValidSelection(Piece piece)
+    {
+        List<PieceType> pieceTypeList =  _orderManager.AvailablePiecesList;
+        PieceType type = pieceTypeList[_pieceList.IndexOf(piece)];
+        if (type == PieceType.None)
+            return false;
+        return true;
+    }
+
+    public bool IsAValidSelection(int index)
+    {
+        List<PieceType> pieceTypeList = _orderManager.AvailablePiecesList;
+        PieceType type = pieceTypeList[index];
+        if (type == PieceType.None)
+            return false;
         return true;
     }
 

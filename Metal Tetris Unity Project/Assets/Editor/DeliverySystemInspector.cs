@@ -9,7 +9,7 @@ public class DeliverySystemInspector : Editor
         base.OnInspectorGUI();
         DeliverySystem grid = (DeliverySystem)target;
         if (GUILayout.Button("Reset Grid"))
-            grid.ClearGrid();
+            grid.Deliver();
     }
 }
 
