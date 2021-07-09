@@ -155,21 +155,6 @@ public class MetalTetrisAgent : Agent
             actionMask.SetActionEnabled(3, 0, false);
             actionMask.SetActionEnabled(3, 1, false);
         }
-        else
-        {
-            actionMask.SetActionEnabled(0, 0, false);
-            actionMask.SetActionEnabled(0, 1, false);
-            actionMask.SetActionEnabled(0, 2, false);
-            actionMask.SetActionEnabled(0, 3, false);
-            actionMask.SetActionEnabled(0, 4, false);
-            actionMask.SetActionEnabled(0, 5, false);
-            actionMask.SetActionEnabled(0, 6, false);
-            actionMask.SetActionEnabled(0, 7, false);
-            actionMask.SetActionEnabled(0, 8, false);
-            actionMask.SetActionEnabled(0, 9, false);
-            actionMask.SetActionEnabled(0, 10, false);
-            actionMask.SetActionEnabled(0, 11, false);
-        }
     }
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
@@ -180,46 +165,48 @@ public class MetalTetrisAgent : Agent
         int clearSheet = actionBuffers.DiscreteActions[3];
 
         bool res = false;
-
+        
+        //Debug.Log(pieceSelection + " | " + movement + " | " + rotation + " | "+ clearSheet + " | ");
+        
         switch (pieceSelection)
         {
-            case 1:
+            case 0:
                 m_AgentController.SelectOrder1Piece0();
                 break;
-            case 2:
+            case 1:
                 m_AgentController.SelectOrder1Piece1();
                 break;
-            case 3:
+            case 2:
                 m_AgentController.SelectOrder1Piece2();
                 break;
-            case 4:
+            case 3:
                 m_AgentController.SelectOrder1Piece3();
                 break;
-            case 5:
+            case 4:
                 m_AgentController.SelectOrder2Piece0();
                 break;
-            case 6:
+            case 5:
                 m_AgentController.SelectOrder2Piece1();
                 break;
-            case 7:
+            case 6:
                 m_AgentController.SelectOrder2Piece2();
                 break;
-            case 8:
+            case 7:
                 m_AgentController.SelectOrder2Piece3();
                 break;
-            case 9:
+            case 8:
                 m_AgentController.SelectOrder3Piece0();
                 break;
-            case 10:
+            case 9:
                 m_AgentController.SelectOrder3Piece1();
                 break;
-            case 11:
+            case 10:
                 m_AgentController.SelectOrder3Piece2();
                 break;
-            case 12:
+            case 11:
                 m_AgentController.SelectOrder3Piece3();
                 break;
-            case 13:
+            case 12:
                 break;
         }
 
@@ -228,22 +215,22 @@ public class MetalTetrisAgent : Agent
             case 1:
                 res =m_AgentController.MoveUp();
                 if (res == false)
-                    SetReward(-0.2f);
+                    SetReward(-0.05f);
                 break;
             case 2:
                 res =m_AgentController.MoveDown();
                 if (res == false)
-                    SetReward(-0.2f);
+                    SetReward(-0.05f);
                 break;
             case 3:
                 res =m_AgentController.MoveLeft();
                 if (res == false)
-                    SetReward(-0.2f);
+                    SetReward(-0.05f);
                 break;
             case 4:
                 res =m_AgentController.MoveRight();
                 if (res == false)
-                    SetReward(-0.2f);
+                    SetReward(-0.05f);
                 break;
             case 5:
                 break;
@@ -251,40 +238,23 @@ public class MetalTetrisAgent : Agent
         
         switch (rotation)
         {
-            case 1:
+            case 0:
                 res = m_AgentController.RotateLeft();
                 if (res == false)
-                    SetReward(-0.2f);
+                    SetReward(-0.05f);
                 break;
-            case 2:
+            case 1:
                 res = m_AgentController.RotateRight();
                 if (res == false)
-                    SetReward(-0.2f);
-                break;
-            case 3:
-                break;
-        }
-
-        switch (clearSheet)
-        {
-            case 1:
-                res = m_AgentController.PlacePiece();
-                if(res == false)
-                    SetReward(-0.2f);
-                else
-                    SetReward(0.1f);
+                    SetReward(-0.05f);
                 break;
             case 2:
-                m_AgentController.ClearTheSheet();
-                EndEpisode();
-                break;
-            case 3:
                 break;
         }
-        
-        m_MovesMade++;
 
-        // Rewards
+        m_MovesMade++;
+        
+// Rewards
         AddReward(m_AgentWorldStateGetter.PorcentageFilled());
 
         int newRowsFilled = m_AgentWorldStateGetter.RowsCompletelyOccupied();
@@ -295,6 +265,29 @@ public class MetalTetrisAgent : Agent
         }
         
         AddReward(m_MovesMade * -0.01f);
+        switch (clearSheet)
+        {
+            case 0:
+                res = m_AgentController.PlacePiece();
+                if(res == false)
+                    SetReward(-0.05f);
+                else
+                    SetReward(0.1f);
+                break;
+            case 1:
+                m_AgentController.ClearTheSheet();
+                EndEpisode();
+                break;
+            case 2:
+                break;
+        }
+
+        if (m_MovesMade > 20)
+        {
+            EndEpisode();
+        }
+
+
 
         // // Reached target
         // if (true)
