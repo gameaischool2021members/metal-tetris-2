@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: L-part
   m_EditorClassIdentifier: 
   _pieceName: L-part
+  _pieceType: 1
+  _piecePrice: 40
   _prefabTransform: {fileID: 2291125913676921831, guid: b91d9cc133b76e943b5f4f5d6b22a482, type: 3}
   _coveredCells:
   - {x: 0, y: 0}

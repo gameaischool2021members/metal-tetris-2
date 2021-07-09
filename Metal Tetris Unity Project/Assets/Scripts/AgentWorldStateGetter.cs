@@ -1,10 +1,15 @@
 using UnityEngine;
+using static Direction;
 
 public class AgentWorldStateGetter : MonoBehaviour
 {
     GridSystem _grid;
+    PieceSelection _pieceSelection;
+    RedLineManager _redLineManager;
 
     public GridSystem Grid {set => _grid = value; }
+    public PieceSelection PieceSelection {set => _pieceSelection = value; }
+    public RedLineManager RedLineManager {set => _redLineManager = value; }
 
     //Grid Status
     public int[,] GridStatus()
@@ -48,10 +53,14 @@ public class AgentWorldStateGetter : MonoBehaviour
         return filledRows;
     }
 
+    //ActualRotation
+    public Facing ActualRotation() => _pieceSelection.ActualPiece.Facing;
+
     //Available Shapes
 
 
-    //AccountBalance
+    //ActualCost
+    public int ActualCost() => _redLineManager.ActualCost;
 
 
 }

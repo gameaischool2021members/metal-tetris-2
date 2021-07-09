@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: T-part
   m_EditorClassIdentifier: 
   _pieceName: T-part
+  _pieceType: 2
+  _piecePrice: 50
   _prefabTransform: {fileID: 5989569476360677418, guid: 2bbfd91023e42ec4b9d76e816b04c417, type: 3}
   _coveredCells:
   - {x: 0, y: 0}

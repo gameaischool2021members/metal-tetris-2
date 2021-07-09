@@ -13,6 +13,7 @@ public class PieceSelection : MonoBehaviour
 
     Vector2 _positionCorrection = new Vector2(-0.5f, -0.5f);
     public GridSystem Grid {set => _grid = value;}
+    public Piece ActualPiece => _actualPiece;
 
     private void OnEnable()
     {

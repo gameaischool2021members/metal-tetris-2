@@ -7,10 +7,7 @@ public class DeliverySystem : MonoBehaviour
 
     public GridSystem Grid {set => _grid = value; }
 
-    private void Awake()
-    {
-        _destroyer = GetComponent<GridPrefabDestroyer>();
-    }
+    private void Awake() => _destroyer = GetComponent<GridPrefabDestroyer>();
     public void ClearGrid()
     {
         _grid.ClearCells();

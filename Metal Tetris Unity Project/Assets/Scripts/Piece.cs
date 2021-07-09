@@ -3,6 +3,7 @@ using UnityEngine;
 using static Direction;
 using static OrdersEnum;
 
+
 [Serializable]
 public class Piece 
 {
