@@ -10,9 +10,17 @@ public class AgentModeToggle : MonoBehaviour
 
     private void Start()
     {
-        IsInAgentMode = false;
-        _playerController.enabled = true;
-        _agentController.enabled = false;
+        //IsInAgentMode = false;
+        if (!IsInAgentMode)
+        {
+            _playerController.enabled = true;
+            _agentController.enabled = false;
+        }
+        else
+        {
+            _playerController.enabled = false;
+            _agentController.enabled = true;
+        }
     }
 
     private void Update()
