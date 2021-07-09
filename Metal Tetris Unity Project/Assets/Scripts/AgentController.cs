@@ -46,6 +46,6 @@ public class AgentController : MonoBehaviour
     public bool PlacePiece() => _pieceSelection.PlacePieceInGrid();
 
     //clearing the Sheet
-    public void ClearTheSheet() =>_deliverySystem.ClearGrid();
+    public void ClearTheSheet() =>_deliverySystem.Deliver();
 
 }

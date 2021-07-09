@@ -30,7 +30,7 @@ public class MetalTetrisAgent : Agent
     {
         base.OnEpisodeBegin();
         
-        deliverySystem.ClearGrid();
+        deliverySystem.Deliver();
         m_TimeUntilMove = moveTime;
         rowsFilled = 0;
         m_MovesMade = 0;

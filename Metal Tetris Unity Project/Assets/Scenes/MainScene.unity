@@ -195,6 +195,7 @@ MonoBehaviour:
   _piece2AmountText: {fileID: 804194045}
   _piece3AmountText: {fileID: 1152529768}
   _piece4AmountText: {fileID: 264871663}
+  _accountBalance: {fileID: 311969736}
   OrderPrice: 0
   Piece1Amount: 0
   Piece2Amount: 0
@@ -3281,6 +3282,7 @@ MonoBehaviour:
   _piece2AmountText: {fileID: 1745764338}
   _piece3AmountText: {fileID: 1555773123}
   _piece4AmountText: {fileID: 1263892472}
+  _accountBalance: {fileID: 311969736}
   OrderPrice: 0
   Piece1Amount: 0
   Piece2Amount: 0
@@ -8199,6 +8201,7 @@ MonoBehaviour:
   _piece2AmountText: {fileID: 81292393}
   _piece3AmountText: {fileID: 1134517138}
   _piece4AmountText: {fileID: 1745839355}
+  _accountBalance: {fileID: 311969736}
   OrderPrice: 0
   Piece1Amount: 0
   Piece2Amount: 0
@@ -8605,6 +8608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f459ecd78c15f8c4a95e49c1c09211dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _accountBalance: {fileID: 311969736}
 --- !u!114 &1940929568
 MonoBehaviour:
   m_ObjectHideFlags: 0
