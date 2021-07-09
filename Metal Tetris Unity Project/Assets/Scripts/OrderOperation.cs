@@ -18,9 +18,9 @@ public class OrderOperation : MonoBehaviour
     {
         OrderPrice = 0;
         OrderPrice += (Piece1Amount * _piece1.PieceSO.PiecePrice);
-        OrderPrice += (Piece1Amount * _piece2.PieceSO.PiecePrice);
-        OrderPrice += (Piece1Amount * _piece3.PieceSO.PiecePrice);
-        OrderPrice += (Piece1Amount * _piece4.PieceSO.PiecePrice);
+        OrderPrice += (Piece2Amount * _piece2.PieceSO.PiecePrice);
+        OrderPrice += (Piece3Amount * _piece3.PieceSO.PiecePrice);
+        OrderPrice += (Piece4Amount * _piece4.PieceSO.PiecePrice);
         UpdatePriceText();
     }
 
@@ -77,6 +77,7 @@ public class OrderOperation : MonoBehaviour
     {
         if (Piece1Amount == 0 && Piece2Amount ==0 && Piece3Amount == 0 && Piece4Amount == 0)
         {
+            Debug.Log("Order Completed");
             OrderComplete.Invoke(this);
             _accountBalance.AddToBalance(OrderPrice);
         }
