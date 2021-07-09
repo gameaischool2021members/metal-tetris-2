@@ -39,7 +39,7 @@ public class PieceSelection : MonoBehaviour
 
     public void SetActualPiece(Piece piece)
     {
-        if (_pieceObject !=null) Destroy(_pieceObject);
+        if (_pieceObject !=null) Destroy(_pieceObject.gameObject);
         _actualPiece = piece;
         _pieceObject = Instantiate(_actualPiece.PieceSO.PrefabTransform, Vector3.zero, Quaternion.identity);
     }

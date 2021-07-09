@@ -1,9 +1,7 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using static PieceTypeEnum;
+using System;
 
 public class OrderOperation : MonoBehaviour
 {
@@ -79,5 +77,10 @@ public class OrderOperation : MonoBehaviour
         {
             //doCompletition Stuff
         }
+    }
+
+    internal bool CheckIfRemaining(Piece piece)
+    {
+        throw new NotImplementedException();
     }
 }
