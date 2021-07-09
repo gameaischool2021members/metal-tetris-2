@@ -1,5 +1,6 @@
 using UnityEngine;
 using static Direction;
+using static PieceTypeEnum;
 
 public class AgentWorldStateGetter : MonoBehaviour
 {
@@ -53,6 +54,9 @@ public class AgentWorldStateGetter : MonoBehaviour
         return filledRows;
     }
 
+    //ActualPiecetype
+    public PieceType ActualPieceType() => _pieceSelection.ActualPiece.PieceSO.PieceType;
+
     //ActualRotation
     public Facing ActualRotation() => _pieceSelection.ActualPiece.Facing;
 
@@ -61,6 +65,7 @@ public class AgentWorldStateGetter : MonoBehaviour
 
     //ActualCost
     public int ActualCost() => _redLineManager.ActualCost;
+
 
 
 }

@@ -11,13 +11,17 @@ public class OrderManager : MonoBehaviour
 
     [SerializeField] PieceManager _pieceManager;
 
-    int _actualOrder;
+    List<PieceType> _originalTypesList = new List<PieceType>();
+    List<PieceType> _availablePiecesList = new List<PieceType>();
+
+    public List<PieceType> AvailablePiecesList => _availablePiecesList; 
 
     private void Start()
     {
         GenerateRandomOrder(_order1);
         GenerateRandomOrder(_order2);
         GenerateRandomOrder(_order3);
+        GenerateOriginalTypesList();
     }
 
 
@@ -69,5 +73,45 @@ public class OrderManager : MonoBehaviour
         order.ReducePieceAmount(piece.PieceSO.PieceType);
     }
 
+    void GenerateOriginalTypesList()
+    {
+        List<Piece> pieceList = _pieceManager.PieceList;
+        foreach (Piece piece in pieceList)
+        {
+            _originalTypesList.Add(piece.PieceSO.PieceType);
+        }
 
+
+
+    }
+
+    public void UpdateAvailablePiecesList()
+    {
+        if (_order1.Piece1Amount == 0) _availablePiecesList[0] = PieceType.None;
+        else _availablePiecesList[0] = _originalTypesList[0];
+        if (_order1.Piece2Amount == 0) _availablePiecesList[1] = PieceType.None;
+        else _availablePiecesList[1] = _originalTypesList[1];
+        if (_order1.Piece3Amount == 0) _availablePiecesList[0] = PieceType.None;
+        else _availablePiecesList[0] = _originalTypesList[0];
+        if (_order1.Piece4Amount == 0) _availablePiecesList[0] = PieceType.None;
+        else _availablePiecesList[0] = _originalTypesList[0];
+
+        if (_order2.Piece1Amount == 0) _availablePiecesList[0] = PieceType.None;
+        else _availablePiecesList[0] = _originalTypesList[0];
+        if (_order2.Piece2Amount == 0) _availablePiecesList[0] = PieceType.None;
+        else _availablePiecesList[0] = _originalTypesList[0];
+        if (_order2.Piece3Amount == 0) _availablePiecesList[0] = PieceType.None;
+        else _availablePiecesList[0] = _originalTypesList[0];
+        if (_order2.Piece4Amount == 0) _availablePiecesList[0] = PieceType.None;
+        else _availablePiecesList[0] = _originalTypesList[0];
+
+        if (_order3.Piece1Amount == 0) _availablePiecesList[0] = PieceType.None;
+        else _availablePiecesList[0] = _originalTypesList[0];
+        if (_order3.Piece2Amount == 0) _availablePiecesList[0] = PieceType.None;
+        else _availablePiecesList[0] = _originalTypesList[0];
+        if (_order3.Piece3Amount == 0) _availablePiecesList[0] = PieceType.None;
+        else _availablePiecesList[0] = _originalTypesList[0];
+        if (_order3.Piece4Amount == 0) _availablePiecesList[0] = PieceType.None;
+        else _availablePiecesList[0] = _originalTypesList[0];
+    }
 }
