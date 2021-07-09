@@ -40,34 +40,69 @@ public class MetalTetrisAgent : Agent
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        int[,] gridStatus = m_AgentWorldStateGetter.GridStatus(); //6 x 10
+        int[,] gridStatus = m_AgentWorldStateGetter.GridStatus(); //6 x 10 = 60
         foreach (var val in gridStatus)
         {
             sensor.AddObservation(val);
         }
         
-        sensor.AddObservation(m_AgentWorldStateGetter.PorcentageFilled());
-        sensor.AddObservation(m_AgentWorldStateGetter.RowsCompletelyOccupied());
-        sensor.AddObservation(m_AgentWorldStateGetter.ActualCost());
+        sensor.AddObservation(m_AgentWorldStateGetter.PorcentageFilled()); //61
+        sensor.AddObservation(m_AgentWorldStateGetter.RowsCompletelyOccupied()); //62
+        sensor.AddObservation(m_AgentWorldStateGetter.ActualCost()/100f); //63
+
+        int[] direction = {0, 0, 0, 0}; 
 
         switch (m_AgentWorldStateGetter.ActualRotation())
         {
             case Direction.Facing.Up:
-                sensor.AddObservation(0.2f);
+                direction[0] = 1;
                 break;
             case Direction.Facing.Right:
-                sensor.AddObservation(0.4f);
+                direction[1] = 1;
                 break;
             case Direction.Facing.Down:
-                sensor.AddObservation(0.6f);
+                direction[2] = 1;
                 break;
             case Direction.Facing.Left:
-                sensor.AddObservation(0.8f);
+                direction[3] = 1;
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
-      
+        
+        foreach (var val in direction)
+        {
+            sensor.AddObservation(val);
+        } //67
+        
+        int[] piece = {0, 0, 0, 0, 0};
+
+        switch (m_AgentWorldStateGetter.ActualPieceType())
+        {
+            case PieceTypeEnum.PieceType.Frame:
+                piece[0] = 1;
+                break;
+            case PieceTypeEnum.PieceType.L_Type:
+                piece[1] = 1;
+                break;
+            case PieceTypeEnum.PieceType.T_Type:
+                piece[2] = 1;
+                break;
+            case PieceTypeEnum.PieceType.C_Type:
+                piece[3] = 1;
+                break;
+            case PieceTypeEnum.PieceType.None:
+                piece[4] = 1;
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+        
+        foreach (var val in piece)
+        {
+            sensor.AddObservation(val);
+        } //72
+
     }
 
     public override void OnActionReceived(ActionBuffers actionBuffers)
@@ -93,8 +128,10 @@ public class MetalTetrisAgent : Agent
         AddReward(m_MovesMade * -0.01f);
 
         // Reached target
-
-
+        if (true)
+        {
+            EndEpisode();
+        }
         // Fell off platform
     }
 
