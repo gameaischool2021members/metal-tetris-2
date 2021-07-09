@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using static Direction;
 using static PieceTypeEnum;
@@ -7,10 +8,12 @@ public class AgentWorldStateGetter : MonoBehaviour
     GridSystem _grid;
     PieceSelection _pieceSelection;
     RedLineManager _redLineManager;
+    OrderManager _orderManager;
 
     public GridSystem Grid {set => _grid = value; }
     public PieceSelection PieceSelection {set => _pieceSelection = value; }
     public RedLineManager RedLineManager {set => _redLineManager = value; }
+    public OrderManager OrderManager {set => _orderManager = value; }
 
     //Grid Status
     public int[,] GridStatus()
@@ -60,8 +63,8 @@ public class AgentWorldStateGetter : MonoBehaviour
     //ActualRotation
     public Facing ActualRotation() => _pieceSelection.ActualPiece.Facing;
 
-    //Available Shapes
-
+    //Available Pieces
+    public List<PieceType> AvailablePieces() => _orderManager.AvailablePiecesList;
 
     //ActualCost
     public int ActualCost() => _redLineManager.ActualCost;

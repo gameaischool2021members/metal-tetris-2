@@ -4,6 +4,7 @@ public class AgentComponentSetter : MonoBehaviour
 {
     [SerializeField] AgentController _agentController;
     [SerializeField] AgentWorldStateGetter _agentWorldStateGetter;
+    [SerializeField] OrderManager _orderManager;
     PieceManager _pieceManager;
     PieceSelection _pieceSelection;
     DeliverySystem _deliverySystem;
@@ -25,5 +26,6 @@ public class AgentComponentSetter : MonoBehaviour
         _agentWorldStateGetter.Grid = _grid;
         _agentWorldStateGetter.PieceSelection = _pieceSelection;
         _agentWorldStateGetter.RedLineManager = _redLineManager;
+        _agentWorldStateGetter.OrderManager = _orderManager;
     }
 }

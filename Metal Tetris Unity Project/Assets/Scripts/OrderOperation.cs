@@ -34,7 +34,7 @@ public class OrderOperation : MonoBehaviour
 
     private void UpdatePriceText()
     {
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
     }
 
     public void ReducePieceAmount(PieceType pieceType)
