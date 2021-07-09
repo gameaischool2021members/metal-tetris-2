@@ -6,6 +6,7 @@ public class PieceManager : MonoBehaviour
     [SerializeField] List<Piece> _pieceList;
     PieceSelection _pieceSelection;
 
+    public List<Piece> PieceList  => _pieceList;
     private void Awake() => _pieceSelection = GetComponent<PieceSelection>();
     private void Start() => GetOrder1Piece0();
 
