@@ -169,7 +169,6 @@ public class MetalTetrisAgent : Agent
             actionMask.SetActionEnabled(0, 9, false);
             actionMask.SetActionEnabled(0, 10, false);
             actionMask.SetActionEnabled(0, 11, false);
-            actionMask.SetActionEnabled(0, 12, false);
         }
     }
     public override void OnActionReceived(ActionBuffers actionBuffers)
