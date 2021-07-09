@@ -190,6 +190,11 @@ MonoBehaviour:
     _pieceSO: {fileID: 11400000, guid: 4093cd7ce84722b4cae31bdb1e429406, type: 2}
     _orderNumber: 0
     Facing: 0
+  _priceText: {fileID: 1196301483}
+  _piece1AmountText: {fileID: 1512584482}
+  _piece2AmountText: {fileID: 804194045}
+  _piece3AmountText: {fileID: 1152529768}
+  _piece4AmountText: {fileID: 264871663}
   OrderPrice: 0
   Piece1Amount: 0
   Piece2Amount: 0
@@ -3294,6 +3299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _piecesParent: {fileID: 1544819033}
   _agentMode: {fileID: 991352281}
+  _orderManager: {fileID: 1299596284}
 --- !u!114 &1940929562
 MonoBehaviour:
   m_ObjectHideFlags: 0
