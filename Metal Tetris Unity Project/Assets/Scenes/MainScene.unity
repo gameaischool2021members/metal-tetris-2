@@ -132,6 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9168500}
+  - component: {fileID: 9168501}
   m_Layer: 0
   m_Name: Order 1
   m_TagString: Untagged
@@ -161,6 +162,43 @@ Transform:
   m_Father: {fileID: 1299596283}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9168501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9168499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b3b0b91e8dc5b945a36aab6e47033e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _piece1:
+    _pieceSO: {fileID: 11400000, guid: fa348feedb9258c45909c8630bbbccc6, type: 2}
+    _orderNumber: 0
+    Facing: 0
+  _piece2:
+    _pieceSO: {fileID: 11400000, guid: 2ef114f267eb6ad4d993b637e737d512, type: 2}
+    _orderNumber: 0
+    Facing: 0
+  _piece3:
+    _pieceSO: {fileID: 11400000, guid: 962993a792d329340a659ec2861dd551, type: 2}
+    _orderNumber: 0
+    Facing: 0
+  _piece4:
+    _pieceSO: {fileID: 11400000, guid: 4093cd7ce84722b4cae31bdb1e429406, type: 2}
+    _orderNumber: 0
+    Facing: 0
+  OrderPrice: 0
+  Piece1Amount: 0
+  Piece2Amount: 0
+  Piece3Amount: 0
+  Piece4Amount: 0
+  IsPiece1Empty: 0
+  IsPiece2Empty: 0
+  IsPiece3Empty: 0
+  IsPiece4Empty: 0
 --- !u!1 &166227200
 GameObject:
   m_ObjectHideFlags: 0
@@ -2165,6 +2203,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1299596283}
+  - component: {fileID: 1299596284}
   m_Layer: 0
   m_Name: Orders
   m_TagString: Untagged
@@ -2188,6 +2227,22 @@ Transform:
   m_Father: {fileID: 2143862297}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1299596284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1299596282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6e679e684a305f4f8b9925742f5f682, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _order1: {fileID: 9168501}
+  _order2: {fileID: 9168501}
+  _order3: {fileID: 9168501}
+  _pieceManager: {fileID: 1940929562}
 --- !u!1 &1342237889
 GameObject:
   m_ObjectHideFlags: 0
@@ -3380,6 +3435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _agentController: {fileID: 991352280}
   _agentWorldStateGetter: {fileID: 991352283}
+  _orderManager: {fileID: 1299596284}
 --- !u!1 &1972833395
 GameObject:
   m_ObjectHideFlags: 0
