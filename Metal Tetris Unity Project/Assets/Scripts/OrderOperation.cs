@@ -11,6 +11,7 @@ public class OrderOperation : MonoBehaviour
     [HideInInspector] public float OrderPrice;
     [HideInInspector] public int Piece1Amount, Piece2Amount, Piece3Amount, Piece4Amount;
     [HideInInspector] public bool IsPiece1Empty, IsPiece2Empty, IsPiece3Empty, IsPiece4Empty;
+    public Action<OrderOperation> OrderComplete; 
 
     public void GenerateOrderPrice()
     {
@@ -75,12 +76,23 @@ public class OrderOperation : MonoBehaviour
     {
         if (Piece1Amount == 0 && Piece2Amount ==0 && Piece3Amount == 0 && Piece4Amount == 0)
         {
+            OrderComplete.Invoke(this);
+
             //doCompletition Stuff
         }
     }
 
-    internal bool CheckIfRemaining(Piece piece)
+    public bool CheckIfRemaining(Piece piece)
     {
-        throw new NotImplementedException();
+        if (piece.PieceSO.PieceType == _piece1.PieceSO.PieceType)
+            return !IsPiece1Empty;
+        if (piece.PieceSO.PieceType == _piece2.PieceSO.PieceType)
+            return !IsPiece2Empty;
+        if (piece.PieceSO.PieceType == _piece3.PieceSO.PieceType)
+            return !IsPiece3Empty;
+        if (piece.PieceSO.PieceType == _piece4.PieceSO.PieceType)
+            return !IsPiece4Empty;
+        else
+            return false;
     }
 }
