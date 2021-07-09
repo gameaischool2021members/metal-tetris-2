@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using static Direction;
+using static PieceTypeEnum;
 
 public class PieceSelection : MonoBehaviour
 {
@@ -51,6 +52,7 @@ public class PieceSelection : MonoBehaviour
 
     public void SetActualPiece(Piece piece)
     {
+        if (!IsAValidSelection(piece)) return;
         if (_pieceObject !=null) Destroy(_pieceObject.gameObject);
         _actualPiece = piece;
         _pieceObject = Instantiate(_actualPiece.PieceSO.PrefabTransform, Vector3.zero, Quaternion.identity);
@@ -91,8 +93,12 @@ public class PieceSelection : MonoBehaviour
 
     public void ChangePieceIfNecessary( int pieceIndexInList)
     {
-        _pieceManager.SetPieceByIndex(pieceIndexInList);
-        if (_orderManager.CheckIfRemainingPieces(_actualPiece)) return;
+        if (_actualPiece == null) _actualPiece = _pieceManager.PieceList[0];
+        if (IsAValidSelection(pieceIndexInList))
+        {
+            SetActualPiece(_pieceManager.PieceList[pieceIndexInList]);
+            return;
+        }
         if (pieceIndexInList < _pieceList.Count-1)
             ChangePieceIfNecessary(pieceIndexInList + 1);
         else
@@ -159,6 +165,24 @@ public class PieceSelection : MonoBehaviour
 
         _agentPosition += new Vector2Int(x, y);
         _pieceObject.position = _grid.GetWorldPosition(_agentPosition.x, _agentPosition.y);
+        return true;
+    }
+
+    public bool IsAValidSelection(Piece piece)
+    {
+        List<PieceType> pieceTypeList =  _orderManager.AvailablePiecesList;
+        PieceType type = pieceTypeList[_pieceList.IndexOf(piece)];
+        if (type == PieceType.None)
+            return false;
+        return true;
+    }
+
+    public bool IsAValidSelection(int index)
+    {
+        List<PieceType> pieceTypeList = _orderManager.AvailablePiecesList;
+        PieceType type = pieceTypeList[index];
+        if (type == PieceType.None)
+            return false;
         return true;
     }
 
