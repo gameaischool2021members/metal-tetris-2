@@ -56,6 +56,7 @@ public class PieceSelection : MonoBehaviour
         if (_pieceObject !=null) Destroy(_pieceObject.gameObject);
         _actualPiece = piece;
         _pieceObject = Instantiate(_actualPiece.PieceSO.PrefabTransform, Vector3.zero, Quaternion.identity);
+        SetCorrection();
     }
 
     private void PlacePieceInGrid(Vector3 mouseWorldPosition)
