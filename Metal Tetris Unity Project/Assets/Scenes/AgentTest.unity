@@ -511,8 +511,8 @@ MonoBehaviour:
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 0
-      BranchSizes: 01000000
-    VectorActionSize: 01000000
+      BranchSizes: 040000000100000001000000
+    VectorActionSize: 040000000100000001000000
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
@@ -828,6 +828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _piecesParent: {fileID: 1544819033}
+  _agentMode: {fileID: 0}
 --- !u!114 &1940929562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -842,12 +843,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pieceList:
   - _pieceSO: {fileID: 11400000, guid: 4093cd7ce84722b4cae31bdb1e429406, type: 2}
+    _orderNumber: 0
     Facing: 0
   - _pieceSO: {fileID: 11400000, guid: 2ef114f267eb6ad4d993b637e737d512, type: 2}
+    _orderNumber: 0
     Facing: 0
   - _pieceSO: {fileID: 11400000, guid: 962993a792d329340a659ec2861dd551, type: 2}
+    _orderNumber: 0
     Facing: 0
   - _pieceSO: {fileID: 11400000, guid: fa348feedb9258c45909c8630bbbccc6, type: 2}
+    _orderNumber: 0
     Facing: 0
 --- !u!114 &1940929563
 MonoBehaviour:
