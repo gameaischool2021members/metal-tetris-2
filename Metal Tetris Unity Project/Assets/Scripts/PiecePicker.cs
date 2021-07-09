@@ -37,9 +37,13 @@ public class PiecePicker : MonoBehaviour
             {
                 PieceGrabber grabber = hit.collider.GetComponent<PieceGrabber>();
                 grabber.GrabAPiece();
-                Debug.Log(hit.transform.gameObject);
-
             }
+            if (hit.collider.GetComponent<CutThisSheet>() != null)
+            {
+                CutThisSheet cutter = hit.collider.GetComponent<CutThisSheet>();
+                cutter.CutTheSheet();
+            }
+
         }
     }
 
