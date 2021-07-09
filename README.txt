@@ -1,6 +1,14 @@
+
+███╗░░░███╗███████╗████████╗░█████╗░██╗░░░░░  ████████╗███████╗████████╗██████╗░██╗░██████╗
+████╗░████║██╔════╝╚══██╔══╝██╔══██╗██║░░░░░  ╚══██╔══╝██╔════╝╚══██╔══╝██╔══██╗██║██╔════╝
+██╔████╔██║█████╗░░░░░██║░░░███████║██║░░░░░  ░░░██║░░░█████╗░░░░░██║░░░██████╔╝██║╚█████╗░
+██║╚██╔╝██║██╔══╝░░░░░██║░░░██╔══██║██║░░░░░  ░░░██║░░░██╔══╝░░░░░██║░░░██╔══██╗██║░╚═══██╗
+██║░╚═╝░██║███████╗░░░██║░░░██║░░██║███████╗  ░░░██║░░░███████╗░░░██║░░░██║░░██║██║██████╔╝
+╚═╝░░░░░╚═╝╚══════╝░░░╚═╝░░░╚═╝░░╚═╝╚══════╝  ░░░╚═╝░░░╚══════╝░░░╚═╝░░░╚═╝░░╚═╝╚═╝╚═════╝░
+
 Team Name: Metal-Tetris
 
-Members:
+Team Members:
 Prabhav Bhatnagar
 Rafael Espinoza
 Carina Mieth
@@ -15,3 +23,15 @@ In order to produce as economically as possible, it is therefore extremely impor
 
 Instructions to Play:
 Open the finalBuildv1 folder and double click the Unity Application called "Metal - Tetris". 
+
+█▀▀ ▄▀█ █▀▄▀█ █▀▀   █▀█ █░█ █░░ █▀▀ █▀
+█▄█ █▀█ █░▀░█ ██▄   █▀▄ █▄█ █▄▄ ██▄ ▄█
+Welcome to the realm of metal puzzles!
+ 
+You are the manager at the metal cutting machine and want to maximize your sales. 
+The parts must be placed on the sheet as efficiently as possible because the material is expensive. 
+ 
+You can drag and click the parts from the orders and place them on the sheet.
+Parts can be rotated with the arrow key.
+ 
+Once the sheet is full, you start the machine. But hurry up, because your shift will be over soon!
