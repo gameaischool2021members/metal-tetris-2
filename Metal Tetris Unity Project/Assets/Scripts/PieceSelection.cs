@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using static Direction;
 
@@ -5,6 +6,7 @@ public class PieceSelection : MonoBehaviour
 {
     [SerializeField] Transform _piecesParent;
     [SerializeField] AgentModeToggle _agentMode;
+    [SerializeField] OrderManager _orderManager;
     Piece _actualPiece;
     Transform _pieceObject;
     GridSystem _grid;
@@ -14,6 +16,7 @@ public class PieceSelection : MonoBehaviour
     Vector2 _positionCorrection = new Vector2(-0.5f, -0.5f);
     public GridSystem Grid {set => _grid = value;}
     public Piece ActualPiece => _actualPiece;
+    public Vector2Int AgentPosition => _agentPosition;
 
     private void OnEnable()
     {
@@ -53,6 +56,7 @@ public class PieceSelection : MonoBehaviour
             _grid.GetWorldPosition(x, y)+correction,
             _pieceObject.localRotation,
             _piecesParent);
+        RemainingActualPiecesCheck();
     }
 
     public bool PlacePieceInGrid()
@@ -67,7 +71,14 @@ public class PieceSelection : MonoBehaviour
             _grid.GetWorldPosition(_agentPosition.x, _agentPosition.y) + correction,
             _pieceObject.localRotation,
             _piecesParent);
+        RemainingActualPiecesCheck();
         return true;
+    }
+
+    private void RemainingActualPiecesCheck()
+    {
+        _orderManager.ReduceAmountOfPiece(_actualPiece);
+
     }
 
     public void RotatePiece(float side) 

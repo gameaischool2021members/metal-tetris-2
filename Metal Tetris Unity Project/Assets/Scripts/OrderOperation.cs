@@ -8,19 +8,11 @@ using static PieceTypeEnum;
 public class OrderOperation : MonoBehaviour
 {
     [SerializeField] Piece _piece1, _piece2, _piece3, _piece4;
+    [SerializeField] TMP_Text _priceText;
+    [SerializeField] TMP_Text _piece1AmountText, _piece2AmountText, _piece3AmountText, _piece4AmountText;
     [HideInInspector] public float OrderPrice;
     [HideInInspector] public int Piece1Amount, Piece2Amount, Piece3Amount, Piece4Amount;
     [HideInInspector] public bool IsPiece1Empty, IsPiece2Empty, IsPiece3Empty, IsPiece4Empty;
-
-
-
-    private void Update()
-    {
-        
-    }
-
-
-
 
     public void GenerateOrderPrice()
     {
@@ -32,9 +24,28 @@ public class OrderOperation : MonoBehaviour
         UpdatePriceText();
     }
 
-    private void UpdatePriceText()
+    public void UpdatePriceText() => _priceText.text = OrderPrice.ToString();
+    public void UpdatePieceAmountText()
     {
-        //throw new NotImplementedException();
+        _piece1AmountText.text = Piece1Amount.ToString();
+        _piece2AmountText.text = Piece2Amount.ToString();
+        _piece3AmountText.text = Piece3Amount.ToString();
+        _piece4AmountText.text = Piece4Amount.ToString();
+    }
+
+    void UpdateEmptinessOfAPiece()
+    {
+        if (Piece1Amount == 0) IsPiece1Empty = true;
+        else IsPiece1Empty = false;
+
+        if (Piece2Amount == 0) IsPiece2Empty = true;
+        else IsPiece2Empty = false;
+
+        if (Piece3Amount == 0) IsPiece3Empty = true;
+        else IsPiece3Empty = false;
+
+        if (Piece4Amount == 0) IsPiece4Empty = true;
+        else IsPiece4Empty = false;
     }
 
     public void ReducePieceAmount(PieceType pieceType)
@@ -58,6 +69,7 @@ public class OrderOperation : MonoBehaviour
                 break;
         }
         CheckCompletition();
+        UpdatePieceAmountText();
     }
 
     void CheckCompletition()

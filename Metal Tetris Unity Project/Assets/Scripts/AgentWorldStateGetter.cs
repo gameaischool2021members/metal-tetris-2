@@ -10,22 +10,22 @@ public class AgentWorldStateGetter : MonoBehaviour
     RedLineManager _redLineManager;
     OrderManager _orderManager;
 
-    public GridSystem Grid {set => _grid = value; }
-    public PieceSelection PieceSelection {set => _pieceSelection = value; }
-    public RedLineManager RedLineManager {set => _redLineManager = value; }
-    public OrderManager OrderManager {set => _orderManager = value; }
+    public GridSystem Grid { set => _grid = value; }
+    public PieceSelection PieceSelection { set => _pieceSelection = value; }
+    public RedLineManager RedLineManager { set => _redLineManager = value; }
+    public OrderManager OrderManager { set => _orderManager = value; }
 
     //Grid Status
     public int[,] GridStatus()
     {
         _grid.GetGridDimensions(out int width, out int height);
-        int[,] gridStatus = new int[width,height];
+        int[,] gridStatus = new int[width, height];
 
         for (int x = 0; x < width; x++)
         {
             for (int y = 0; y < height; y++)
             {
-                gridStatus[x,y]= _grid.GetValue(x, y);
+                gridStatus[x, y] = _grid.GetValue(x, y);
             }
         }
         return gridStatus;
@@ -68,6 +68,9 @@ public class AgentWorldStateGetter : MonoBehaviour
 
     //ActualCost
     public int ActualCost() => _redLineManager.ActualCost;
+
+    //Curren tPosition
+    public Vector2Int ActualPositionInGrid() => _pieceSelection.AgentPosition;
 
 
 

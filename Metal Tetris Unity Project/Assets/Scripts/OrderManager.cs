@@ -26,6 +26,11 @@ public class OrderManager : MonoBehaviour
 
     void GenerateRandomOrder(OrderOperation order)
     {
+        order.Piece1Amount = 0;
+        order.Piece2Amount = 0;
+        order.Piece3Amount = 0;
+        order.Piece4Amount = 0;
+
         int numberOfPieces = Random.Range(2, 5);
         for (int i = 0; i < numberOfPieces; i++)
         {
@@ -49,6 +54,8 @@ public class OrderManager : MonoBehaviour
             }
         }
         order.GenerateOrderPrice();
+        order.UpdatePriceText();
+        order.UpdatePieceAmountText();
     }
 
     public void ReduceAmountOfPiece(Piece piece)
