@@ -884,7 +884,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 65
+    VectorObservationSize: 76
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 0
@@ -3474,6 +3474,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _agentController: {fileID: 991352280}
   _agentWorldStateGetter: {fileID: 991352283}
+  _orderManager: {fileID: 0}
 --- !u!1 &1972833395
 GameObject:
   m_ObjectHideFlags: 0
