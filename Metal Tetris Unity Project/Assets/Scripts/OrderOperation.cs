@@ -8,7 +8,8 @@ public class OrderOperation : MonoBehaviour
     [SerializeField] Piece _piece1, _piece2, _piece3, _piece4;
     [SerializeField] TMP_Text _priceText;
     [SerializeField] TMP_Text _piece1AmountText, _piece2AmountText, _piece3AmountText, _piece4AmountText;
-    [HideInInspector] public float OrderPrice;
+    [SerializeField] AccountBalance _accountBalance;
+    [HideInInspector] public int OrderPrice;
     [HideInInspector] public int Piece1Amount, Piece2Amount, Piece3Amount, Piece4Amount;
     [HideInInspector] public bool IsPiece1Empty, IsPiece2Empty, IsPiece3Empty, IsPiece4Empty;
     public Action<OrderOperation> OrderComplete; 
@@ -77,8 +78,7 @@ public class OrderOperation : MonoBehaviour
         if (Piece1Amount == 0 && Piece2Amount ==0 && Piece3Amount == 0 && Piece4Amount == 0)
         {
             OrderComplete.Invoke(this);
-
-            //doCompletition Stuff
+            _accountBalance.AddToBalance(OrderPrice);
         }
     }
 
