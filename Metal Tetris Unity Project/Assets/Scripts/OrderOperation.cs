@@ -33,7 +33,7 @@ public class OrderOperation : MonoBehaviour
         _piece4AmountText.text = Piece4Amount.ToString();
     }
 
-    void UpdateEmptinessOfAPiece()
+    public void UpdateEmptinessOfAPiece()
     {
         if (Piece1Amount == 0) IsPiece1Empty = true;
         else IsPiece1Empty = false;
@@ -70,6 +70,7 @@ public class OrderOperation : MonoBehaviour
         }
         CheckCompletition();
         UpdatePieceAmountText();
+        UpdateEmptinessOfAPiece();
     }
 
     void CheckCompletition()

@@ -56,6 +56,7 @@ public class OrderManager : MonoBehaviour
         order.GenerateOrderPrice();
         order.UpdatePriceText();
         order.UpdatePieceAmountText();
+        order.UpdateEmptinessOfAPiece();
     }
 
     public void ReduceAmountOfPiece(Piece piece)
@@ -120,4 +121,5 @@ public class OrderManager : MonoBehaviour
         if (_order3.Piece4Amount == 0) _availablePiecesList[11] = PieceType.None;
         else _availablePiecesList[11] = _originalTypesList[11];
     }
+
 }
