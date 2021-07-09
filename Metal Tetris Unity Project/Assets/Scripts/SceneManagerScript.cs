@@ -25,6 +25,7 @@ public class SceneManagerScript : MonoBehaviour
         if (sceneNum == 2) SceneManager.LoadScene(2); // Play Game
         if (sceneNum == 3) SceneManager.LoadScene(3); // Credits
 
+        if (sceneNum == 4) Application.Quit(); //   QUIT
 
     }
 }
