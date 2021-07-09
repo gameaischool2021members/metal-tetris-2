@@ -134,6 +134,13 @@ public class MetalTetrisAgent : Agent
             sensor.AddObservation(val);
         } //76
 
+        float posx = m_AgentWorldStateGetter.ActualPositionInGrid().x / 6f;
+        float posy = m_AgentWorldStateGetter.ActualPositionInGrid().y / 10f;
+        
+        sensor.AddObservation(posx); //77
+        sensor.AddObservation(posy); //78
+
+
     }
     public override void WriteDiscreteActionMask(IDiscreteActionMask actionMask)
     {
