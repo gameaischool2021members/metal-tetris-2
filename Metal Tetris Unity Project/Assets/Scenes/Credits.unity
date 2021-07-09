@@ -911,7 +911,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Team Metal-Tetris\n\nMetal Tetris was created in the Game Jam of the \n3rd
     International Summer School on \nArtificial Intelligence and Games (2021) by:\n\nPrabhav
-    Bhatnagar\nCarina Mieth\nLara Caruana Montaldo\nRafael Espinoza\nLukas Hondrich\n\n\n"
+    Bhatnagar\nRafael Espinoza\nCarina Mieth\nLara Caruana Montaldo\nLukas Hondrich\n\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
