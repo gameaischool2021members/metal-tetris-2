@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using static PieceTypeEnum;
+using static OrdersEnum;
 
 public class OrderManager : MonoBehaviour
 {
@@ -13,7 +14,20 @@ public class OrderManager : MonoBehaviour
     List<PieceType> _originalTypesList = new List<PieceType>();
     List<PieceType> _availablePiecesList = new List<PieceType>();
 
-    public List<PieceType> AvailablePiecesList => _availablePiecesList; 
+    public List<PieceType> AvailablePiecesList => _availablePiecesList;
+
+    private void OnEnable()
+    {
+        _order1.OrderComplete += GenerateRandomOrder;
+        _order2.OrderComplete += GenerateRandomOrder;
+        _order3.OrderComplete += GenerateRandomOrder;
+    }
+    private void OnDisable()
+    {
+        _order1.OrderComplete -= GenerateRandomOrder;
+        _order2.OrderComplete -= GenerateRandomOrder;
+        _order3.OrderComplete -= GenerateRandomOrder;
+    }
 
     private void Start()
     {
@@ -64,13 +78,13 @@ public class OrderManager : MonoBehaviour
         OrderOperation order;
         switch (piece.OrderNumber)
         {
-            case OrdersEnum.Order.Order1:
+            case Order.Order1:
                 order = _order1;
                 break;
-            case OrdersEnum.Order.Order2:
+            case Order.Order2:
                 order = _order2;
                 break;
-            case OrdersEnum.Order.Order3:
+            case Order.Order3:
                 order = _order3;
                 break;
             default:
@@ -120,6 +134,21 @@ public class OrderManager : MonoBehaviour
         else _availablePiecesList[10] = _originalTypesList[10];
         if (_order3.Piece4Amount == 0) _availablePiecesList[11] = PieceType.None;
         else _availablePiecesList[11] = _originalTypesList[11];
+    }
+
+    public bool CheckIfRemainingPieces(Piece piece)
+    {
+        switch (piece.OrderNumber)
+        {
+            case Order.Order1:
+                return _order1.CheckIfRemaining(piece);
+            case Order.Order2:
+                return _order2.CheckIfRemaining(piece);
+            case Order.Order3:
+                return _order3.CheckIfRemaining(piece);
+            default:
+                return false;
+        }
     }
 
 }

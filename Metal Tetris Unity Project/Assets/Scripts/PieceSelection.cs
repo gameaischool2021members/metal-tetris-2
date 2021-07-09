@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using static Direction;
 
@@ -7,16 +8,23 @@ public class PieceSelection : MonoBehaviour
     [SerializeField] Transform _piecesParent;
     [SerializeField] AgentModeToggle _agentMode;
     [SerializeField] OrderManager _orderManager;
+    PieceManager _pieceManager;
+    List<Piece> _pieceList;
     Piece _actualPiece;
     Transform _pieceObject;
     GridSystem _grid;
     PlayerController _controller;
+
+
+
     Vector2Int _agentPosition;
 
     Vector2 _positionCorrection = new Vector2(-0.5f, -0.5f);
+    public List<Piece> PieceList {set => _pieceList = value; }
     public GridSystem Grid {set => _grid = value;}
     public Piece ActualPiece => _actualPiece;
     public Vector2Int AgentPosition => _agentPosition;
+
 
     private void OnEnable()
     {
@@ -29,7 +37,11 @@ public class PieceSelection : MonoBehaviour
         _controller.PlayerRotate -= RotatePiece;
     }
 
-    void Awake() => _controller = GetComponent<PlayerController>();
+    void Awake()
+    {
+        _controller = GetComponent<PlayerController>();
+        _pieceManager = GetComponent<PieceManager>();
+    }
 
     void Update()
     {
@@ -39,7 +51,7 @@ public class PieceSelection : MonoBehaviour
 
     public void SetActualPiece(Piece piece)
     {
-        if (_pieceObject !=null) Destroy(_pieceObject);
+        if (_pieceObject !=null) Destroy(_pieceObject.gameObject);
         _actualPiece = piece;
         _pieceObject = Instantiate(_actualPiece.PieceSO.PrefabTransform, Vector3.zero, Quaternion.identity);
     }
@@ -56,7 +68,8 @@ public class PieceSelection : MonoBehaviour
             _grid.GetWorldPosition(x, y)+correction,
             _pieceObject.localRotation,
             _piecesParent);
-        RemainingActualPiecesCheck();
+        _orderManager.ReduceAmountOfPiece(_actualPiece);
+        ChangePieceIfNecessary(_pieceList.IndexOf(_actualPiece));
     }
 
     public bool PlacePieceInGrid()
@@ -71,15 +84,21 @@ public class PieceSelection : MonoBehaviour
             _grid.GetWorldPosition(_agentPosition.x, _agentPosition.y) + correction,
             _pieceObject.localRotation,
             _piecesParent);
-        RemainingActualPiecesCheck();
+        _orderManager.ReduceAmountOfPiece(_actualPiece);
+        ChangePieceIfNecessary( _pieceList.IndexOf(_actualPiece));
         return true;
     }
 
-    private void RemainingActualPiecesCheck()
+    public void ChangePieceIfNecessary( int pieceIndexInList)
     {
-        _orderManager.ReduceAmountOfPiece(_actualPiece);
-
+        _pieceManager.SetPieceByIndex(pieceIndexInList);
+        if (_orderManager.CheckIfRemainingPieces(_actualPiece)) return;
+        if (pieceIndexInList < _pieceList.Count-1)
+            ChangePieceIfNecessary(pieceIndexInList + 1);
+        else
+            ChangePieceIfNecessary(0);
     }
+    public void ChangePieceIfNecessary() => ChangePieceIfNecessary(0);
 
     public void RotatePiece(float side) 
     {
