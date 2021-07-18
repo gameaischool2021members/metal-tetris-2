@@ -14,15 +14,8 @@ public class PiecePicker : MonoBehaviour
         _main = Camera.main;
     }
 
-    private void Start()
-    {
-        _playerController.PlayerClicked += PickAPiece;
-    }
-
-    private void OnDestroy()
-    {
-        _playerController.PlayerClicked -= PickAPiece;
-    }
+    private void Start() => _playerController.PlayerClicked += PickAPiece;
+    private void OnDestroy() => _playerController.PlayerClicked -= PickAPiece;
 
     void PickAPiece(Vector3 mousePosition)
     {

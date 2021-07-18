@@ -16,8 +16,6 @@ public class PieceSelection : MonoBehaviour
     GridSystem _grid;
     PlayerController _controller;
 
-
-
     Vector2Int _agentPosition;
 
     Vector2 _positionCorrection = new Vector2(-0.5f, -0.5f);
@@ -55,6 +53,7 @@ public class PieceSelection : MonoBehaviour
         if (!IsAValidSelection(piece)) return;
         if (_pieceObject !=null) Destroy(_pieceObject.gameObject);
         _actualPiece = piece;
+        _actualPiece.Facing = Facing.Up;
         _pieceObject = Instantiate(_actualPiece.PieceSO.PrefabTransform, Vector3.zero, Quaternion.identity);
         SetCorrection();
     }
@@ -68,7 +67,7 @@ public class PieceSelection : MonoBehaviour
 
         Vector3 correction = new Vector3(0.5f + _positionCorrection.x, 0.5f + _positionCorrection.y, 0);
         Instantiate(_actualPiece.PieceSO.PrefabTransform,
-            _grid.GetWorldPosition(x, y)+correction,
+            _grid.GetWorldPosition(x, y) + correction,
             _pieceObject.localRotation,
             _piecesParent);
         _orderManager.ReduceAmountOfPiece(_actualPiece);
@@ -144,11 +143,13 @@ public class PieceSelection : MonoBehaviour
 
     void SetCorrection()
     {
+        
         float angle = _pieceObject.localEulerAngles.z;
         if (angle == 0) _positionCorrection = new Vector2(-0.5f, -0.5f);
         if (angle == 90) _positionCorrection = new Vector2(0.5f, -0.5f);
         if (angle == 180) _positionCorrection = new Vector2(0.5f, 0.5f);
         if (angle == 270) _positionCorrection = new Vector2(-0.5f, 0.5f);
+        
     }
 
     //Agent
